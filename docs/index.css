@@ -1,0 +1,15 @@
+:root {
+  --system-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  --main-bg-color: #fff;
+  --main-color: #000;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--main-bg-color);
+}
+
+body {
+  font-family: var(--system-font);
+  color: var(--main-color);
+}

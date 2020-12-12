@@ -1,15 +1,121 @@
 :root {
   --system-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  --main-bg-color: #fff;
-  --main-color: #000;
+  
+  --body-font: monospace;
+  --heading-font: Georgia, sans-serif;
+
+  --violet: #dbdde6;
+  --dark-red: #be3e2b;
+  --light-red: #e77f74;
+
+  --main-bg-color: var(--dark-red);
+  --main-color: var(--light-red);
+  --secondary-bg-color: var(--violet);
+  --secondary-color: var(--main-bg-color);
+
+  --base-padding: 1rem;
+  --base-font-size: 125%;
 }
 
 html {
   scroll-behavior: smooth;
   background: var(--main-bg-color);
+  font-size: var(--base-font-size);
 }
 
 body {
-  font-family: var(--system-font);
+  font-family: var(--body-font);
   color: var(--main-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover, a:focus, a:active {
+  text-decoration: underline;
+}
+
+[aria-role="navigation"] ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+[aria-role="navigation"] ul li {
+  display: inline-block;
+}
+
+header {
+  margin-top: 20vh !important;
+  font-size: 1.25rem;
+}
+
+header h1 {
+  margin: 0;
+  font-family: var(--heading-font);
+}
+
+.tagline {
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+header, main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--base-padding);
+  box-sizing: border-box;
+}
+
+address {
+  font-style: normal;
+}
+
+#cta {
+  padding-bottom: calc(var(--base-padding) * 4);
+}
+
+#cta a {
+  color: var(--secondary-color);
+  background: var(--main-color);
+  background: #fff;
+  padding: .5rem 1rem;
+  display: inline-block;
+  border-radius: .5rem;
+  margin-top: 1rem;
+  transition: background .2s;
+}
+#cta a:hover {
+  text-decoration: none;
+  background: #fff;
+}
+
+footer {
+  background: var(--secondary-bg-color);
+  color: var(--secondary-color);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding: calc(var(--base-padding) / 2) var(--base-padding);
+  font-size: calc(1rem / 3 * 2);
+}
+
+footer [aria-role="navigation"] ul li:not(:first-child)::before {
+  content: " | ";
+}
+
+/* Medium Device Breakpoint */
+@media (min-width: 720px) {
+  html {
+    font-size: calc(var(--base-font-size) * 1.25);
+  }
+}
+
+/* Large Device Breakpoint */
+@media (min-width: 960px) {
+  html {
+    font-size: calc(var(--base-font-size) * 1.5);
+  }
 }

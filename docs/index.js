@@ -1,5 +1,16 @@
+(() => {
+  const style = document.createElement('style')
+  style.textContent = `body {
+    opacity: 0;
+    transition: opacity .4s;
+  }`
+  document.head.append(style)
+})();
+
 const onLoad = () => {
-  console.log('index.js loaded successfully after DOM content')
+  setTimeout(() => {
+    document.body.style.opacity = '1'
+  }, 400)
 }
 
 document.addEventListener('DOMContentLoaded', onLoad)

@@ -52,7 +52,8 @@ const onLoad = () => {
   let timeout = null
   const fontChecks = [
     checkFont('Roboto Mono'),
-    checkFont('Windsor D')
+    checkFont('Windsor D'),
+    checkFont('icomoon')
   ]
 
   Promise.all(fontChecks).then(_ => {
@@ -60,7 +61,7 @@ const onLoad = () => {
     fadeIn()
   })
 
-  timeout = setTimeout(fadeIn, 1000)
+  timeout = setTimeout(fadeIn, 2000)
 }
 
 document.addEventListener('DOMContentLoaded', onLoad)

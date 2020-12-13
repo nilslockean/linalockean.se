@@ -21,12 +21,13 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--main-bg-color);
+  background: var(--secondary-bg-color);
   font-size: var(--base-font-size);
   transition: font-size .2s;
 }
 
 body {
+  background: var(--main-bg-color);
   color: var(--main-color);
   min-height: 100vh;
   min-height: -webkit-fill-available;
@@ -112,6 +113,17 @@ body.no-js header h1 {
 
 address {
   font-style: normal;
+}
+
+address [aria-role="navigation"] a {
+  transition: color .2s;
+}
+
+address [aria-role="navigation"] a:hover,
+address [aria-role="navigation"] a:active,
+address [aria-role="navigation"] a:focus {
+  text-decoration: none;
+  color: #fff;
 }
 
 #cta a {

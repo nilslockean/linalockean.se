@@ -26,6 +26,20 @@ html {
 body {
   font-family: var(--body-font);
   color: var(--main-color);
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+
+.flex-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--base-padding);
 }
 
 a {
@@ -46,7 +60,6 @@ a:hover, a:focus, a:active {
 }
 
 header {
-  margin-top: 20vh !important;
   font-size: 1.25rem;
 }
 
@@ -60,19 +73,8 @@ header h1 {
   margin-top: 0;
 }
 
-header, main {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 var(--base-padding);
-  box-sizing: border-box;
-}
-
 address {
   font-style: normal;
-}
-
-#cta {
-  padding-bottom: calc(var(--base-padding) * 4);
 }
 
 #cta a {
@@ -93,13 +95,10 @@ address {
 footer {
   background: var(--secondary-bg-color);
   color: var(--secondary-color);
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
   text-align: center;
   padding: calc(var(--base-padding) / 2) var(--base-padding);
   font-size: calc(1rem / 3 * 2);
+  flex-grow: 0;
 }
 
 footer [aria-role="navigation"] ul li:not(:first-child)::before {

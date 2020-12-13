@@ -1,4 +1,7 @@
 (() => {
+  document.body.classList.remove('no-js')
+  document.body.setAttribute('aria-hidden', 'true')
+
   const style = document.createElement('style')
   style.textContent = `body {
     opacity: 0;
@@ -7,10 +10,57 @@
   document.head.append(style)
 })();
 
+const checkFont = (fontname) => {
+  let checks = 0
+  let interval = null
+  let hasLoaded = false
+
+  return new Promise(resolve => {
+    const onSuccess = () => {
+      if ( interval !== null ) {
+        clearInterval(interval)
+      }
+      document.body.classList.add(fontname.toLowerCase().replaceAll(' ', '-') + '--loaded')
+      resolve(hasLoaded)
+    }
+    
+    const check = () => {
+      checks++
+
+      if ( checks >= 20 ) return onSuccess()
+
+      try {
+        hasLoaded = document.fonts.check('1rem "' + fontname + '"')
+      } catch (_error) {
+        return onSuccess()
+      }
+      
+      if ( hasLoaded ) {
+        onSuccess()
+      }
+    }
+    
+    setInterval(check, 100)
+  })
+}
+
 const onLoad = () => {
-  setTimeout(() => {
+  const fadeIn = () => {
     document.body.style.opacity = '1'
-  }, 400)
+    document.body.setAttribute('aria-hidden', 'false')
+  }
+  let timeout = null
+  const fontChecks = [
+    checkFont('Roboto Mono'),
+    // checkFont('Windsor')
+  ]
+
+  Promise.all(fontChecks).then(_ => {
+    clearTimeout(timeout)
+    fadeIn()
+  })
+
+  timeout = setTimeout(fadeIn, 5000)
 }
 
 document.addEventListener('DOMContentLoaded', onLoad)

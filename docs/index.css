@@ -1,8 +1,9 @@
 :root {
   --system-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  
-  --body-font: monospace;
-  --heading-font: Georgia, sans-serif;
+
+  --body-font: 'Roboto Mono', monospace;
+  --body-font--fallback: 'monospace';
+  --heading-font: var(--body-font);
 
   --violet: #dbdde6;
   --dark-red: #be3e2b;
@@ -21,15 +22,22 @@ html {
   scroll-behavior: smooth;
   background: var(--main-bg-color);
   font-size: var(--base-font-size);
+  transition: font-size .2s;
 }
 
 body {
-  font-family: var(--body-font);
   color: var(--main-color);
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
+  font-family: var(--body-font--fallback);
+  line-height: 1.4;
+}
+
+body.roboto-mono--loaded,
+body.no-js {
+  font-family: var(--body-font);
 }
 
 .flex-container {
@@ -40,6 +48,18 @@ body {
   max-width: 1120px;
   margin: 0 auto;
   padding: var(--base-padding);
+}
+
+/* Accessible hiding */
+.hidden {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px;
+  width: 1px; 
+  margin: -1px;
+  padding: 0;
+  border: 0; 
 }
 
 a {

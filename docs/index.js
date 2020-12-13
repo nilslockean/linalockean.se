@@ -11,11 +11,11 @@
 })();
 
 const checkFont = (fontname) => {
-  let checks = 0
-  let interval = null
-  let hasLoaded = false
-
   return new Promise(resolve => {
+    let checks = 0
+    let interval = null
+    let hasLoaded = false
+    
     const onSuccess = () => {
       if ( interval !== null ) {
         clearInterval(interval)
@@ -40,7 +40,7 @@ const checkFont = (fontname) => {
       }
     }
     
-    setInterval(check, 100)
+    interval = setInterval(check, 100)
   })
 }
 
@@ -52,7 +52,7 @@ const onLoad = () => {
   let timeout = null
   const fontChecks = [
     checkFont('Roboto Mono'),
-    // checkFont('Windsor')
+    checkFont('Windsor D')
   ]
 
   Promise.all(fontChecks).then(_ => {
@@ -60,7 +60,7 @@ const onLoad = () => {
     fadeIn()
   })
 
-  timeout = setTimeout(fadeIn, 5000)
+  timeout = setTimeout(fadeIn, 1000)
 }
 
 document.addEventListener('DOMContentLoaded', onLoad)

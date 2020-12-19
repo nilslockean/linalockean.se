@@ -34,6 +34,13 @@ const checkFont = (fontname) => {
 
 const onLoad = () => {
   document.body.classList.remove('no-js')
+
+  const labels = document.querySelectorAll('.no-js')
+  if ( !!labels ) {
+    for ( const label of labels ) label.parentElement.removeChild(label)
+  }
+  
+
   const loader = document.getElementById('loader')
   if ( !loader ) return;
 
@@ -57,12 +64,7 @@ const onLoad = () => {
 
   let timeout = setTimeout(fadeIn, 2000)
 
-  const fontChecks = [
-    checkFont('Roboto Mono'),
-    checkFont('icomoon')
-  ]
-
-  Promise.all(fontChecks).then(_ => {
+  checkFont('Roboto Mono').then(_ => {
     clearTimeout(timeout)
     fadeIn()
   })

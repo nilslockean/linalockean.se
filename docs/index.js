@@ -1,15 +1,3 @@
-(() => {
-  document.body.classList.remove('no-js')
-  document.body.setAttribute('aria-hidden', 'true')
-
-  const style = document.createElement('style')
-  style.textContent = `body {
-    opacity: 0;
-    transition: opacity .4s;
-  }`
-  document.head.append(style)
-})();
-
 const checkFont = (fontname) => {
   return new Promise(resolve => {
     let checks = 0
@@ -45,11 +33,30 @@ const checkFont = (fontname) => {
 }
 
 const onLoad = () => {
+  document.body.classList.remove('no-js')
+  const loader = document.getElementById('loader')
+  if ( !loader ) return;
+
+  const style = document.createElement('style')
+  style.textContent = `#loader {
+    transition: opacity .4s;
+  }`
+  document.head.append(style)
+
+  loader.setAttribute('aria-hidden', 'false')
+  loader.classList.remove('hidden')
+
   const fadeIn = () => {
-    document.body.style.opacity = '1'
-    document.body.setAttribute('aria-hidden', 'false')
+    loader.setAttribute('aria-hidden', 'true')
+    loader.classList.remove('hidden')
+    loader.style.opacity = '0'
+    setTimeout(() => {
+      loader.parentElement.removeChild(loader)
+    }, 400)
   }
-  let timeout = null
+
+  let timeout = setTimeout(fadeIn, 2000)
+
   const fontChecks = [
     checkFont('Roboto Mono'),
     checkFont('Windsor D'),
@@ -60,8 +67,8 @@ const onLoad = () => {
     clearTimeout(timeout)
     fadeIn()
   })
-
-  timeout = setTimeout(fadeIn, 2000)
 }
 
 document.addEventListener('DOMContentLoaded', onLoad)
+
+// <div class="lds-dual-ring"></div>

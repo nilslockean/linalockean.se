@@ -24,19 +24,17 @@ html {
   background: var(--secondary-bg-color);
   font-size: var(--base-font-size);
   transition: font-size .2s;
+  height: 100%;
 }
 
 body {
   background: var(--main-bg-color);
   color: var(--main-color);
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-  height: 100vh;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
   font-family: var(--body-font--fallback);
   line-height: 1.4;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
 body.roboto-mono--loaded,
@@ -45,7 +43,6 @@ body.no-js {
 }
 
 .flex-container {
-  flex-grow: 1;
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
@@ -147,7 +144,6 @@ footer {
   text-align: center;
   padding: calc(var(--base-padding) / 2) var(--base-padding);
   font-size: calc(1rem / 3 * 2);
-  flex-grow: 0;
 }
 
 footer [aria-role="navigation"] ul li:not(:first-child)::before {

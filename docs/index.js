@@ -59,7 +59,6 @@ const onLoad = () => {
 
   const fontChecks = [
     checkFont('Roboto Mono'),
-    checkFont('Windsor D'),
     checkFont('icomoon')
   ]
 

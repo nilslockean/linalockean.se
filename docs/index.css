@@ -3,8 +3,6 @@
 
   --body-font: 'Roboto Mono', var(--body-font--fallback);
   --body-font--fallback: 'monospace';
-  --heading-font: 'Windsor D';
-  --heading-font--fallback: var(--body-font);
 
   --violet: #dbdde6;
   --dark-red: #be3e2b;
@@ -16,7 +14,7 @@
   --secondary-color: var(--main-bg-color);
 
   --base-padding: 1rem;
-  --base-font-size: 125%;
+  --base-font-size: 100%;
 }
 
 html {
@@ -46,7 +44,7 @@ body.no-js {
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
-  max-width: 1120px;
+  max-width: 960px;
   margin: 0 auto;
   padding: calc(var(--base-padding) * 3) var(--base-padding);
 }
@@ -86,20 +84,14 @@ header {
 
 header h1 {
   margin: 0;
-  font-family: var(--heading-font--fallback);
   line-height: 1.1;
   padding-bottom: 1rem;
   font-size: 3.2rem;
-  opacity: 0;
-  transition: opacity .2s;
 }
 
-body.windsor-d--loaded header h1,
-body.no-js header h1 {
-  opacity: 1;
-  font-family: var(--heading-font);
-  font-size: 3.5rem;
-  line-height: 1;
+header h1 svg#logo {
+  width: calc(1rem * 19);
+  fill: var(--main-color);
 }
 
 .tagline {
@@ -125,8 +117,7 @@ address [aria-role="navigation"] a:focus {
 
 #cta a {
   color: var(--secondary-color);
-  background: var(--main-color);
-  background: #fff;
+  background: var(--secondary-bg-color);
   padding: .5rem 1rem;
   display: inline-block;
   border-radius: .5rem;
@@ -153,14 +144,14 @@ footer [aria-role="navigation"] ul li:not(:first-child)::before {
 /* Medium Device Breakpoint */
 @media (min-width: 720px) {
   html {
-    font-size: calc(var(--base-font-size) * 1.25);
+    font-size: calc(var(--base-font-size) * 1.15);
   }
 }
 
 /* Large Device Breakpoint */
 @media (min-width: 960px) {
   html {
-    font-size: calc(var(--base-font-size) * 1.5);
+    font-size: calc(var(--base-font-size) * 1.25);
   }
 }
 

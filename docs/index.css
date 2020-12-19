@@ -69,12 +69,12 @@ a:hover, a:focus, a:active {
   text-decoration: underline;
 }
 
-[aria-role="navigation"] ul {
+[role="navigation"] ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-[aria-role="navigation"] ul li {
+[role="navigation"] ul li {
   display: inline-block;
 }
 
@@ -104,13 +104,13 @@ address {
   font-style: normal;
 }
 
-address [aria-role="navigation"] a {
+address [role="navigation"] a {
   transition: color .2s;
 }
 
-address [aria-role="navigation"] a:hover,
-address [aria-role="navigation"] a:active,
-address [aria-role="navigation"] a:focus {
+address [role="navigation"] a:hover,
+address [role="navigation"] a:active,
+address [role="navigation"] a:focus {
   text-decoration: none;
   color: #fff;
 }
@@ -137,7 +137,7 @@ footer {
   font-size: calc(1rem / 3 * 2);
 }
 
-footer [aria-role="navigation"] ul li:not(:first-child)::before {
+footer [role="navigation"] ul li:not(:first-child)::before {
   content: " | ";
 }
 

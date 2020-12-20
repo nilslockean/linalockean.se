@@ -1,5 +1,5 @@
 {
-  "name": "elemental",
+  "name": "linalockean.se",
   "version": "1.0.0",
   "description": "A template project for simple websites without dependencies",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nilslockean/elemental.git"
+    "url": "git+https://github.com/nilslockean/linalockean.se.git"
   },
   "author": "Nils Lockean",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nilslockean/elemental/issues"
+    "url": "https://github.com/nilslockean/linalockean.se/issues"
   },
-  "homepage": "https://github.com/nilslockean/elemental#readme",
+  "homepage": "https://github.com/nilslockean/linalockean.se#readme",
   "devDependencies": {
     "browser-sync": "^2.26.13"
   }

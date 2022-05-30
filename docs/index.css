@@ -175,6 +175,10 @@ a:focus {
   box-shadow: none;
 }
 
+#contact {
+  margin-top: 1rem;
+}
+
 footer {
   text-align: center;
   padding: var(--base-padding);
